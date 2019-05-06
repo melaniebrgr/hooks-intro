@@ -1,0 +1,57 @@
+import { Notes } from "mdx-deck";
+export { syntaxHighlighterPrism as theme } from "mdx-deck/themes";
+
+# React Hooks
+
+- new feature in React 16.8
+- compatible with existing React code
+
+<Notes>
+  No prior knowledge assumed. Shared what I've learned... Jeff is going to
+  walkthrough...
+</Notes>
+
+---
+
+# What are Hooks
+
+- functions that “hook" into React features, and
+- "attach" behaviours to functional components.
+- They can be composed and shared between components.
+
+<Notes>
+  Replace setState, lifecycle methods without having to create a class. Like a
+  React Primitive for stateful logic.
+</Notes>
+
+---
+
+# Why Hooks
+
+- avoids long classes
+- groups related side-effect logic
+- address the problems HOCs and render props were used to solve
+- instead of learning a library like recompose, "just use React"
+
+<Notes>
+  HOCs wrapper hell, render props false hierarchy. Andrew Clark, stopped
+  maintaining recompose, because "Hooks solves all the problems I attempted to
+  address with Recompose three years ago, and more on top of that" (1).
+</Notes>
+
+---
+
+# Types
+
+- useState
+- useReducer
+- useEffect
+- ...build your own custom hooks
+
+<Notes>10 types built into React</Notes>
+
+---
+
+# References
+
+1. https://github.com/acdlite/recompose/commit/7867de653abbb57a49934e52622a60b433bda918
