@@ -31,7 +31,7 @@ export const theme = syntaxHighlighterPrism;
 
 ---
 
-# Why Hooks
+# Why Hooks?
 
 - avoid long classes
 - group related side-effect logic
@@ -46,7 +46,7 @@ export const theme = syntaxHighlighterPrism;
 
 ---
 
-# Types
+# Types of Hooks
 
 - `useState`
 - `useReducer`
@@ -131,8 +131,6 @@ useEffect(didUpdate, ?dependencies);
 
 "whenever this state changes, run this effect"
 
-<Notes>not a replacement for CDM, CDU, CWU</Notes>
-
 ---
 
 # Example: `useEffect` State Dependencies
@@ -143,6 +141,41 @@ useEffect(didUpdate, ?dependencies);
 
 ---
 
-# References
+# Rules of Hooks
 
-1. https://github.com/acdlite/recompose/commit/7867de653abbb57a49934e52622a60b433bda918
+- only call in functional components or other custom hooks.
+- only call at the top
+- don't call inside conditions or loops
+- custom hooks can return anything
+- prefix custom hooks with 'use' for linting
+
+<Notes>
+  must be called in the same order in every component render. not just arrays
+  can be returned
+</Notes>
+
+---
+
+# How does this affect us?
+
+- How should we adopt?
+  - for new code?
+  - for existing code?
+  - existing HOCs, render props?
+- When should we use hooks?
+- How should we test?
+
+<Notes>
+  how: upgrade from react 16.6. when: not very much (most components sb
+  stateless). test: integration tests with react testing library (tests should
+  resemble how code is used)
+</Notes>
+
+---
+
+# Resources
+
+1. https://reactjs.org/docs/hooks-intro.html
+2. https://overreacted.io/a-complete-guide-to-useeffect/
+3. https://www.robinwieruch.de/react-hooks-migration/
+4. https://usehooks.com/
