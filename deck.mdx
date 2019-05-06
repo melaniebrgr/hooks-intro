@@ -120,16 +120,26 @@ useEffect(didUpdate, ?dependencies);
 ```
 
 - use for fetching data, timers, intervals, logging
-- replaces effects previously called in CDM, CDU, CWU
-- dependencies determine when it runs
-
-<Notes>Short for use side-effect</Notes>
+- use for effects previously called in CDM, CDU, CWU
+- dependencies determine when effect runs
 
 ---
 
-# `useEffect` Hook
+# `useEffect` with State
 
 ![useEffect](/use-effect.png "Ryan Florence useEffect")
+
+"whenever this state changes, run this effect"
+
+<Notes>not a replacement for CDM, CDU, CWU</Notes>
+
+---
+
+# Example: `useEffect` State Dependencies
+
+<Box width={"100vw"}>
+  <CodeSandbox src={`https://codesandbox.io/embed/jlpxj27l6w?fontsize=14`} />
+</Box>
 
 ---
 
