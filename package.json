@@ -11,6 +11,13 @@
   "devDependencies": {
     "mdx-deck": "^2.3.2",
     "mdx-deck-code-surfer": "^0.5.5",
+    "prism-react-renderer": "^0.1.6",
     "raw-loader": "^2.0.0"
+  },
+  "dependencies": {
+    "@researchgate/react-intersection-observer": "^1.0.0",
+    "intersection-observer": "^0.5.1",
+    "prop-types": "^15.7.2",
+    "styled-components": "^4.2.0"
   }
 }
