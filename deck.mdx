@@ -1,5 +1,10 @@
 import { Notes } from "mdx-deck";
-export { syntaxHighlighterPrism as theme } from "mdx-deck/themes";
+import CodeSandbox from "./components/CodeSandbox.js";
+import Box from "./components/Box";
+
+import { syntaxHighlighterPrism } from "mdx-deck/themes";
+import nightOwl from "prism-react-renderer/themes/nightOwl";
+export const theme = syntaxHighlighterPrism;
 
 # React Hooks
 
@@ -13,11 +18,11 @@ export { syntaxHighlighterPrism as theme } from "mdx-deck/themes";
 
 ---
 
-# What are Hooks
+# Hooks are...
 
-- functions that “hook" into React features, and
-- "attach" behaviours to functional components.
-- They can be composed and shared between components.
+- functions that "hook" into React features
+- attach behaviours to functional components
+- composable and shareable
 
 <Notes>
   Replace setState, lifecycle methods without having to create a class. Like a
@@ -28,9 +33,9 @@ export { syntaxHighlighterPrism as theme } from "mdx-deck/themes";
 
 # Why Hooks
 
-- avoids long classes
-- groups related side-effect logic
-- address the problems HOCs and render props were used to solve
+- avoid long classes
+- group related side-effect logic
+- address the problems HOCs and render props solve
 - instead of learning a library like recompose, "just use React"
 
 <Notes>
@@ -43,12 +48,55 @@ export { syntaxHighlighterPrism as theme } from "mdx-deck/themes";
 
 # Types
 
-- useState
-- useReducer
-- useEffect
+- `useState`
+- `useReducer`
+- `useEffect`
 - ...build your own custom hooks
 
-<Notes>10 types built into React</Notes>
+<Notes>10 hook types built into React</Notes>
+
+---
+
+# `useState` Hook
+
+```js
+const [count, setCount] = useState(0);
+```
+
+- takes initial state, returns the current state and an updater
+- updater takes a new state value or a function
+- calling updater queues a component re-render
+
+<Notes>Why useState and not createState...?</Notes>
+
+---
+
+# `useState` Hook
+
+```jsx
+const InputField = ({ label, initialValue }) => {
+  const [value, setValue] = useState(initialValue);
+
+  return (
+    <label>
+      {label}
+      <input
+        type='text'
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </label>
+  );
+};
+```
+
+---
+
+# Example: Refactor to `useState`
+
+<Box width={"100vw"}>
+  <CodeSandbox src={`https://codesandbox.io/embed/w67j72v2mw?fontsize=14`} />
+</Box>
 
 ---
 
