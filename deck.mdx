@@ -66,29 +66,9 @@ const [count, setCount] = useState(0);
 - takes initial state, returns the current state and an updater
 - updater takes a new state value or a function
 - calling updater queues a component re-render
+- replaces `setState`
 
 <Notes>Why useState and not createState...?</Notes>
-
----
-
-# `useState` Hook
-
-```jsx
-const InputField = ({ label, initialValue }) => {
-  const [value, setValue] = useState(initialValue);
-
-  return (
-    <label>
-      {label}
-      <input
-        type='text'
-        value={value}
-        onChange={e => setValue(e.target.value)}
-      />
-    </label>
-  );
-};
-```
 
 ---
 
@@ -97,6 +77,59 @@ const InputField = ({ label, initialValue }) => {
 <Box width={"100vw"}>
   <CodeSandbox src={`https://codesandbox.io/embed/w67j72v2mw?fontsize=14`} />
 </Box>
+
+---
+
+# Comparison: Forms with Classes
+
+<Box width={"100vw"}>
+  <CodeSandbox
+    src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/examples/forms-with-classes?fontsize=14`}
+  />
+</Box>
+
+---
+
+# Comparison: Forms with Hooks
+
+<Box width={"100vw"}>
+  <CodeSandbox
+    src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/examples/forms-with-hooks?fontsize=14`}
+  />
+</Box>
+
+---
+
+# `useReducer` Hook
+
+```js
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+- an alternative to `useState`
+- prefer `useReducer` when...
+  - state logic is complex or nested (is an object)
+  - there is a lot of state in the component and want to collocate
+
+---
+
+# `useEffect` Hook
+
+```js
+useEffect(didUpdate, ?dependencies);
+```
+
+- use for fetching data, timers, intervals, logging
+- replaces effects previously called in CDM, CDU, CWU
+- dependencies determine when it runs
+
+<Notes>Short for use side-effect</Notes>
+
+---
+
+# `useEffect` Hook
+
+![useEffect](/use-effect.png "Ryan Florence useEffect")
 
 ---
 

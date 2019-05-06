@@ -1,0 +1,20 @@
+---
+
+# `useState` Hook
+
+```jsx
+const InputField = ({ label, initialValue }) => {
+  const [value, setValue] = useState(initialValue);
+
+  return (
+    <label>
+      {label}
+      <input
+        type='text'
+        value={value}
+        onChange={e => setValue(e.target.value)}
+      />
+    </label>
+  );
+};
+```
