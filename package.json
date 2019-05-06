@@ -4,7 +4,7 @@
   "description": "presentation",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "mdx-deck deck.mdx"
   },
   "author": "Melanie Burger",
   "license": "ISC",
