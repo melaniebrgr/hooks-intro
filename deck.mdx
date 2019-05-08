@@ -74,7 +74,6 @@ const InputField = ({ label, initialValue }) => {
 # Types of Hooks
 
 - `useState`
-- `useReducer`
 - `useEffect`
 - ...build your own custom hooks
 
@@ -118,19 +117,6 @@ const [count, setCount] = useState(0);
 <Box width={"100vw"}>
   <CodeSandbox src={`https://codesandbox.io/embed/vqk3pj0my3?fontsize=22`} />
 </Box>
-
----
-
-# `useReducer` Hook
-
-```js
-const [state, dispatch] = useReducer(reducer, initialState);
-```
-
-- an alternative to `useState`
-- prefer `useReducer` when...
-  - state logic is complex or nested (is an object)
-  - there is a lot of state in the component and want to collocate
 
 ---
 
