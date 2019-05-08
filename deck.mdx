@@ -1,20 +1,27 @@
 import { Notes } from "mdx-deck";
+
 import CodeSandbox from "./components/CodeSandbox.js";
 import Box from "./components/Box";
 
 import { syntaxHighlighterPrism } from "mdx-deck/themes";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
-export const theme = syntaxHighlighterPrism;
+
+export const themes = [
+  syntaxHighlighterPrism,
+  {
+    code: { fontSize: "100%" },
+    pre: { fontSize: "30px" }
+  }
+];
 
 # React Hooks
 
 - new feature in React 16.8
 - compatible with existing React code
-
-<Notes>
-  No prior knowledge assumed. Shared what I've learned... Jeff is going to
-  walkthrough...
-</Notes>
+  <Notes>
+    No prior knowledge assumed. Shared what I've learned... Jeff is going to
+    walkthrough...
+  </Notes>
 
 ---
 
@@ -31,6 +38,24 @@ export const theme = syntaxHighlighterPrism;
 
 ---
 
+# Example of a hook
+
+```jsx
+import React, { useState } from "react";
+
+const InputField = ({ label, initialValue }) => {
+  const [value, setValue] = useState(initialValue);
+
+  return (
+    <input type='text' value={value} onChange={e => setValue(e.target.value)} />
+  );
+};
+```
+
+<Notes>Hooks are just functions</Notes>
+
+---
+
 # Why Hooks?
 
 - avoid long classes
@@ -41,7 +66,7 @@ export const theme = syntaxHighlighterPrism;
 <Notes>
   HOCs wrapper hell, render props false hierarchy. Andrew Clark, stopped
   maintaining recompose, because "Hooks solves all the problems I attempted to
-  address with Recompose three years ago, and more on top of that" (1).
+  address with Recompose three years ago, and more on top of that".
 </Notes>
 
 ---
@@ -75,7 +100,7 @@ const [count, setCount] = useState(0);
 # Example: Refactor to `useState`
 
 <Box width={"100vw"}>
-  <CodeSandbox src={`https://codesandbox.io/embed/w67j72v2mw?fontsize=14`} />
+  <CodeSandbox src={`https://codesandbox.io/embed/w67j72v2mw?fontsize=22`} />
 </Box>
 
 ---
@@ -83,9 +108,7 @@ const [count, setCount] = useState(0);
 # Comparison: Forms with Classes
 
 <Box width={"100vw"}>
-  <CodeSandbox
-    src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/examples/forms-with-classes?fontsize=14`}
-  />
+  <CodeSandbox src={`https://codesandbox.io/embed/vm87y7w5?fontsize=22`} />
 </Box>
 
 ---
@@ -93,9 +116,7 @@ const [count, setCount] = useState(0);
 # Comparison: Forms with Hooks
 
 <Box width={"100vw"}>
-  <CodeSandbox
-    src={`https://codesandbox.io/embed/github/e-schultz/ts-js-react-training/tree/master/examples/forms-with-hooks?fontsize=14`}
-  />
+  <CodeSandbox src={`https://codesandbox.io/embed/vqk3pj0my3?fontsize=22`} />
 </Box>
 
 ---
@@ -119,9 +140,15 @@ const [state, dispatch] = useReducer(reducer, initialState);
 useEffect(didUpdate, ?dependencies);
 ```
 
+- short for use side-effect
 - use for fetching data, timers, intervals, logging
 - use for effects previously called in CDM, CDU, CWU
 - dependencies determine when effect runs
+
+<Notes>
+  use [side] effect. Running useEffect defered until after the browser has
+  painted
+</Notes>
 
 ---
 
@@ -136,7 +163,7 @@ useEffect(didUpdate, ?dependencies);
 # Example: `useEffect` State Dependencies
 
 <Box width={"100vw"}>
-  <CodeSandbox src={`https://codesandbox.io/embed/jlpxj27l6w?fontsize=14`} />
+  <CodeSandbox src={`https://codesandbox.io/embed/jlpxj27l6w?fontsize=22`} />
 </Box>
 
 ---
@@ -147,12 +174,19 @@ useEffect(didUpdate, ?dependencies);
 - only call at the top
 - don't call inside conditions or loops
 - custom hooks can return anything
-- prefix custom hooks with 'use' for linting
+- prefix custom hooks with `use` for linting
 
 <Notes>
   must be called in the same order in every component render. not just arrays
   can be returned
 </Notes>
+
+---
+
+# Summary
+
+Hooks are just functions.
+Call inside functional components to add React behaviours.
 
 ---
 
@@ -168,7 +202,7 @@ useEffect(didUpdate, ?dependencies);
 <Notes>
   how: upgrade from react 16.6. when: not very much (most components sb
   stateless). test: integration tests with react testing library (tests should
-  resemble how code is used)
+  resemble how code is used). Questions?
 </Notes>
 
 ---
